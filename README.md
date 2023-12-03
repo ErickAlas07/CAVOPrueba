@@ -2,7 +2,7 @@
 
 ##1. Desarrollo de API: https://github.com/ErickAlas07/APICRUD.git
 
-##2. Manejo de Base de Datos: 
+##2. Manejo de Base de Datos: https://github.com/ErickAlas07/CAVOPrueba/tree/main/2
 
 ##3. Seguridad y autenticación:
 
