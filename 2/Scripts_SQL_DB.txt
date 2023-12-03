@@ -1,0 +1,51 @@
+/******** CREACIÓN DE BASE DE DATOS **********/
+CREATE DATABASE IF NOT EXISTS BD_Registro;
+
+USE bd_registro;
+
+/******** CREACIÓN DE BASE DE TABLAS **********/
+
+CREATE TABLE Usuarios (
+    ID INT PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Email VARCHAR(100),
+    Telefono VARCHAR(15),
+    edad int,
+    RolID INT
+);
+
+CREATE TABLE Roles (
+    ID INT PRIMARY KEY,
+    Rol VARCHAR(50)
+);
+
+
+/******** INSERCIÓN DE DATOS **********/
+
+INSERT INTO Roles (ID, Rol) VALUES (1, 'Admin');
+INSERT INTO Roles (ID, Rol) VALUES (2, 'Profesor');
+INSERT INTO Roles (ID, Rol) VALUES (3, 'Estudiante');
+
+INSERT INTO Usuarios (ID, Nombre, Email, Telefono, Edad, RolID) VALUES (1, 'Juan', 'juan@example.com', '123-456-7890', 30, 1);
+INSERT INTO Usuarios (ID, Nombre, Email, Telefono, Edad, RolID) VALUES (2, 'Maria', 'maria@example.com', '098-765-4321', 25, 2);
+INSERT INTO Usuarios (ID, Nombre, Email, Telefono, Edad, RolID) VALUES (3, 'Pedro', 'pedro@example.com', '111-222-3333', 35, 3);
+INSERT INTO usuarios(ID, Nombre, Email, Telefono, Edad, RolID) VALUES (4, 'Erick','erick@gmail.com', '+5037316-1841', 24, 1);  
+INSERT INTO Usuarios (ID, Nombre, Email, Telefono, Edad, RolID) VALUES (5, 'Jeff', 'jeff@example.com', '+5036125-6080', 20, 2);
+INSERT INTO Usuarios (ID, Nombre, Email, Telefono, Edad, RolID) VALUES (6, 'Chris', 'chris@example.com', '+5036104-5287', 17, 3);
+
+/********* CONSULTAS SQL para obtener todos los usuarios con un rol específico. *********/
+
+/** PRIMERA FORMA **/
+
+SELECT usuarios.Nombre, usuarios.Email, usuarios.Telefono, usuarios.Edad, usuarios.RolID
+FROM Usuarios
+JOIN Roles ON Usuarios.RolID = Roles.ID
+WHERE Roles.Rol = 'Admin';
+
+/** SEGUNDA FORMA **/
+
+SELECT Usuarios.Nombre, Usuarios.Email, Usuarios.Telefono, Usuarios.Edad, Roles.Rol
+FROM Usuarios
+JOIN Roles ON Usuarios.RolID = Roles.ID
+WHERE Roles.Rol = 'Admin';
+
